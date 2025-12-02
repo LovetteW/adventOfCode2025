@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <ctype.h>
 
-//Files tutorial I used: https://youtu.be/Hzg3kCHJcxI?si=mjyea-iNUuiqbhHn
 //AI DISCLAIMER! I had to consult Clause 4.5 (see line 22) to get input into my program, lol. 
+//In the human way: here's also a files tutorial I used as a launchpad: https://youtu.be/Hzg3kCHJcxI?si=mjyea-iNUuiqbhHn
 
 int main(){
 	int dial = 50;
