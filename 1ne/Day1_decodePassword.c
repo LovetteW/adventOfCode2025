@@ -25,8 +25,9 @@ int main(){
 			//decrement
 			for(int i = 0; i < distance; i++){
 				dial--;
-				if(dial == 0){
-				} else if(dial == -1){
+				//remove below line to solve part 1
+				password += dial == 0 ? 1 : 0;
+				if(dial == -1){
 					dial = 99;
 				}
 			}
@@ -36,10 +37,13 @@ int main(){
 				dial++;
 				if(dial == 100){
 					dial = 0;
+					//remove below line to solve part 1
+					password++;
 				}
 			}
 		}
-		password += dial == 0 ? 1 : 0;
+		//un-comment below to solve part 1
+		//password += dial == 0 ? 1 : 0;
 		printf("%d | %d\n", password, dial);
 	}
 	fclose(filePointer);
