@@ -1,12 +1,35 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <ctype.h>
 
 //https://youtu.be/Hzg3kCHJcxI?si=mjyea-iNUuiqbhHn
 
 int main(){
 	printf("Successful launch!\n");
 	int dial = 50;
+	int *dialPointer = &dial;
 	int password = 0;
+	int *passwordPointer = &password;
+	FILE *filePointer = fopen("Rotations.txt", "r");
+	
+	char rotationBuffer[10];
+	//fgets() retrieves a single line with arguments of destination, max size, and pointer to file you're referencing.
+	// since it will return NULL when we reach the end of a file...
+	while(fgets(rotationBuffer, 10, filePointer) != NULL){
+		char letter;
+		int distance;
+		int direction;
+		int delta;
+		sscanf(rotationBuffer, "%c%d", &letter, &distance);
+		printf("Letter: %c | Distance: %d | ", letter, distance);
+		direction = letter == 'L' ? -1 : 1;
+		delta = direction * distance;
+		dial += delta;
+		printf("Delta: %d | New Dial Position: %d\n", delta, dial);
+	}
+	fclose(filePointer);
+/*
+
+
 	char letter;
 	int n1;
 	int n2;
@@ -37,7 +60,7 @@ int main(){
 		}
 		printf("Distance: %d", distance);
 		//printf("Line: %c | %d | %d\n", letter, n1, n2);
-		/*if(line[2] == '\n' || line[2] == '\0'){
+		//if(line[2] == '\n' || line[2] == '\0'){
 			printf("Line[0]: %c";
 		} else {
 			*dis = (line[0] * 10) + line[1];
@@ -58,9 +81,9 @@ int main(){
 			dial = dial % 100;
 		} else if(dial < 0){
 			dial = 100 + (dial % 100);
-		}*/
+		}//
 	}
 	fclose(f);
-	printf("Password/ times at dead 00: %d\n", password);
+	printf("Password/ times at dead 00: %d\n", password);*/
 	return 0;
 }
