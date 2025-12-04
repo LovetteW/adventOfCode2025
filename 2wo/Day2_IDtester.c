@@ -22,11 +22,21 @@ int main(){
 	fgets(input, sizeof(input), rangesFile);
 	printf("%s", input);
 
+
 	int inputLength = strlen(input);
-	printf("Input length: %d", inputLength); 
+	printf("\nInput length: %d\n", inputLength); 
 
 	//The fgetc() function returns the ASCII value of the character at the current position in the file and then moves the position indicator to the next character.[https://www.w3schools.com/c/ref_stdio_fgetc.php]
-	
+	//scratch that. I eventually asked ChatGPT how it'd write something to feed characters into an array, and it just used a simple incrementing index...
+	int i = 0; 
+	char bufferThatEventuallyTurnsIntoLowerOrUpper[20];
+
+	while(input[i] != '\0'){
+		bufferThatEventuallyTurnsIntoLowerOrUpper[i] = input[i];
+		i++;
+	}
+	if(input[i] == '-'
+		
 	//identify lower bound of product ID range. input sequence is predictable: [lower][hyphen][upper][comma]
 
 	//while((c = fgetc(rangesFile)) != EOF){} //you NEED to do c = fgetc() so that each character gets assigned to c. The incrementing to the next char is done by the function itself
